@@ -50,7 +50,7 @@ export const features = [
     title: "Note Taking",
     content:
       "Note-Taking Web App used to take and share notes among.",
-    link: "http://localhost:5173/notes",
+    link: "/notes",
   },
   {
     id: "feature-5",
@@ -58,7 +58,15 @@ export const features = [
     title: "Chatroom",
     content:
       "Interactive Chatrooms for Real-time Collaboration.",
-    link: "http://localhost:3000/",
+    link: "https://chatroom-dkzj67pzt-hargunkaur286.vercel.app/",
+  },
+  {
+    id: "feature-6",
+    icon: star,
+    title: "Time Management",
+    content:
+      "Organize, Prioritize, Achieve",
+    link: "/Time",
   },
 ];
 

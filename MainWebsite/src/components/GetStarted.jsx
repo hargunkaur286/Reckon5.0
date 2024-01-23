@@ -7,7 +7,7 @@ const GetStarted = () => (
       <a href="https://ethiriumeducation4u.vercel.app/">
         <div className={`${styles.flexStart} flex-row`}>
           <p className="font-poppins font-medium text-[18px] leading-[23.4px]">
-            <span className="text-gradient">ethereum</span>
+            <span className="text-gradient">Let's Go</span>
           </p>
           <img src={arrowUp} alt="arrow-up" className="w-[23px] h-[23px] object-contain" />
         </div>

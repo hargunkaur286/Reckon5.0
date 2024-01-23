@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 function Notes() {
   const [notes, setNotes] = useState([]);
   const [currentNote, setCurrentNote] = useState({ title: '', content: '', id: null });
-  const [fileUrl, setFileUrl] = useState("");
 
   const handleNoteChange = (e) => {
     setCurrentNote({
@@ -13,32 +11,11 @@ function Notes() {
     });
   };
 
-  const saveNote = async () => {
+  const saveNote = () => {
     const newNote = { ...currentNote, id: Date.now() };
     const updatedNotes = currentNote.id ? notes.map(n => n.id === currentNote.id ? currentNote : n) : [...notes, newNote];
     setNotes(updatedNotes);
-
-    // Convert note to a Blob for IPFS
-    const blob = new Blob([JSON.stringify(currentNote)], { type: 'application/json' });
-    const fileData = new FormData();
-    fileData.append("file", blob);
-
-    try {
-      const responseData = await axios({
-        method: "post",
-        url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
-        data: fileData,
-        headers: {
-          pinata_api_key: import.meta.env.VITE_PINATA_API_KEY,
-          pinata_secret_api_key: import.meta.env.VITE_PINATA_SECRET_KEY,
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      const fileUrl = "https://gateway.pinata.cloud/ipfs/" + responseData.data.IpfsHash;
-      setFileUrl(fileUrl);
-    } catch (err) {
-      console.error(err);
-    }
+    setCurrentNote({ title: '', content: '', id: null }); // Clear the currentNote after saving
   };
 
   const deleteNote = (noteId) => {
@@ -97,7 +74,6 @@ function Notes() {
           </div>
         ))}
       </div>
-      {fileUrl && <a className="mt-4 text-blue-500 hover:underline" href={fileUrl} target="_blank" rel="noopener noreferrer">View on IPFS</a>}
     </div>
   );
 }
