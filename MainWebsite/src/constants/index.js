@@ -44,21 +44,13 @@ export const features = [
       "Pdf to video.mp4 Integration for Instant Insights, dynamics.",
     link: "https://655eedbae3d8f248289cf726--inquisitive-starship-799278.netlify.app/",
   },
-  // {
-  //   id: "feature-3",
-  //   // icon: send,
-  //   title: "Calender Scheduling",
-  //   content:
-  //     "Calendar Scheduling for Efficient Time Management.",
-  //   link: ""
-  // },
   {
     id: "feature-4",
     icon: star,
     title: "Note Taking",
     content:
       "Note-Taking Web App used to take and share notes among.",
-    link: "https://notes-sharing-education4you.netlify.app",
+    link: "http://localhost:5173/notes",
   },
   {
     id: "feature-5",
